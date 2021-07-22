@@ -66,19 +66,24 @@ document.getElementById("titulo_pacientesIsapre").innerHTML = "Pacientes Isapre 
 
 let filtrarIsapre = document.getElementById("filtroIsapre");
 
-let fIsapre = dental.filter(function (isapre) {
-    if (isapre.prevision === 'ISAPRE') {
-        filtroIsapre.innerHTML += `${[isapre.paciente, isapre.prevision].join(" - ")}<br>`;
-    }
+let fIsapre = dental.filter(function (elemento) {
+    // if (isapre.prevision === 'ISAPRE') {
+    return elemento.prevision === 'ISAPRE'
+});
+
+fIsapre.forEach(function (elementos) {
+    filtroIsapre.innerHTML += (` ${[elementos.paciente, elementos.prevision].join(" - ")}<br>`);
 });
 
 /** Filtro pacientes Traumatología Fonasa*/
+
 document.getElementById("titulo_pacientesFonasa").innerHTML = "Pacientes Fonasa de Traumatología";
 
 let filtrarFonasa = document.getElementById("filtroFonasa");
 
 let fFonasa = traumatologia.filter(function (fonasa) {
-    if (fonasa.prevision === 'FONASA') {
-        filtroFonasa.innerHTML += `${[fonasa.paciente, fonasa.prevision].join(" - ")}<br>`
-    }
+    return fonasa.prevision === 'FONASA';
 })
+fFonasa.forEach(function (elementos) {
+    filtroFonasa.innerHTML += (` ${[elementos.paciente, elementos.prevision].join(" - ")}<br>`);
+});
